@@ -130,4 +130,3 @@ Combine layouts, Dynamic Gets, optional JavaScript/CSS libraries, and reusable c
 ## Ready for your next step?
 
 Revisit this page whenever you need to re-orient yourself or onboard a teammate. Start from Step 1 if you need a refresher on architecture, jump to Step 4 to drill into a feature, or head straight to Step 6 when preparing a release. Happy building!
-
