@@ -53,7 +53,7 @@ Joomla Component Builder (JCB) packs years of community knowledge into one docum
 3. **Practice compilation and installation** by iterating through small changes, recompiling, and reinstalling within Joomla using the instructions in the Hello World tutorial and [Field Types](./Field-Types.md#5-compiling-and-installing-your-component).  
 ۳. **کامپایل و نصب را تمرین کنید** با تکرار تغییرات کوچک، کامپایل مجدد و نصب دوباره در جوملا با استفاده از دستورالعمل‌های آموزش هلو ورلد و [انواع فیلد](./Field-Types.md#5-compiling-and-installing-your-component).  
 4. **Document your learning**—update component notes, track field names, and keep a changelog. This habit will ease later export/import or collaboration tasks.
-۴. **یادگیری خود را مستند کنید** — یادداشت‌های کامپوننت را به‌روز کنید، نام فیلدها را پیگیری کنید و یک چنگ‌لاگ نگه دارید. این عادت کارهای بعدی واردات/صادرات یا همکاری را آسان‌تر می‌کند.
+۴. **یادگیری خود را مستند کنید** — یادداشت‌های کامپوننت را به‌روز کنید، نام فیلدها را پیگیری کنید و یک تغییر لاگ نگه دارید. این عادت کارهای بعدی واردات/صادرات یا همکاری را آسان‌تر می‌کند.
 
 > 🧭 **Outcome:** you can create a functioning component, compile it, install it, and recognise how admin data flows to the site frontend.
 > 🧭 **نتیجه:** می‌توانید یک کامپوننت کارآمد بسازید، آن را کامپایل و نصب کنید و تشخیص دهید داده‌های ادمین چگونه به فرانت‌اند سایت جریان می‌یابند.
