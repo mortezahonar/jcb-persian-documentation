@@ -168,7 +168,7 @@ document.getElementById('jform_event_time').addEventListener('input', function()
 
 می‌توانید به **ویکی** رسمی دسترسی داشته باشید و در بهبود مستندات مشارکت کنید:
 
-* **URL:** [مستندات Readme](http://projects.vdm.io/projects/Joomla-component-builder/wiki)
+* **آدرس (URL):** [مستندات Readme](http://projects.vdm.io/projects/Joomla-component-builder/wiki)
 
 اگر می‌خواهید مشارکت کنید یا مستندات راهنمای کامپوننت خود را درخواست دهید، با نگه‌دارنده‌های پروژه تماس بگیرید.
 

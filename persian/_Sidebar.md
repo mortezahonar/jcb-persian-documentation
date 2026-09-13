@@ -20,7 +20,7 @@
         - [سفارشی‌سازی تنظیمات کامپوننت](Component-Settings-Overview)
 	- [اسکریپت‌نویسی کامپوننت‌ها](Component-Scripts)
 	- [گزینه‌های FTP کامپوننت](Component-FTP-and-more)
-	- [Dynamic Gets (کوئری‌ساز بصری)](dynamicGet)
+	- [کوئری‌ساز بصری (Dynamic Gets)](dynamicGet)
 	- [ویوی سایت DynamicGet](Adding-dynamicGet-to-a-Site-View)
 	- [قالب‌های ویوی سایت](Adding-Templates-and-Layouts-to-a-Site-View)
         - [راهنمای راه‌اندازی قالب (پوشش‌دهنده‌های ماژولار)](Template-Setup)
