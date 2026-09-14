@@ -172,7 +172,6 @@ In the *Cost-Benefit Projection* example:
 
 Inside the **Combined Results** view, additional buttons such as *Dashboard* and *Companies* were added.
 درون ویوی **Combined Results**، دکمه‌های اضافی مانند *Dashboard* و *Companies* اضافه شدند.
-
 These correspond to the actions available *within* that specific view.
 این‌ها با اقدامات موجود *درون* همان ویوی خاص مطابقت دارند.
 
@@ -190,7 +189,6 @@ These correspond to the actions available *within* that specific view.
 
 When multiple records are selected in a list view, their IDs (`cid`) can be passed to your Custom Admin View dynamically.
 وقتی چند رکورد در یک ویوی لیست انتخاب می‌شوند، شناسه‌های آن‌ها (`cid`) می‌توانند به‌صورت پویا به ویوی مدیریتی سفارشی شما منتقل شوند.
-
 This enables data filtering or aggregation based on user selection.
 این کار فیلتر کردن یا تجمیع داده‌ها را بر اساس انتخاب کاربر ممکن می‌سازد.
 
@@ -211,7 +209,6 @@ To achieve this:
 
 In JCB, this is typically implemented in the **getListQuery()** method of the model.
 در JCB، این کار معمولاً در متد **getListQuery()** مدل پیاده‌سازی می‌شود.
-
 You can modify or extend it via the Dynamic GET builder to suit your component's logic.
 می‌توانید آن را از طریق سازنده Dynamic GET تغییر یا گسترش دهید تا با منطق کامپوننت شما سازگار شود.
 
