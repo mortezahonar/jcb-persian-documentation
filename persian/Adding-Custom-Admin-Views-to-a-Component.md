@@ -1,5 +1,5 @@
 # **Adding Custom Admin Views to a Component**
-# **افزودن ویوهای مدیریتی سفارشی به یک کامپوننت**
+# **افزودن ویوهای ادمین سفارشی به یک کامپوننت**
 
 ---
 
@@ -7,19 +7,19 @@
 ## **مرور کلی**
 
 In Joomla Component Builder (JCB), *Custom Admin Views* allow developers to create dynamic and flexible administrative views inside their components. These views enhance the backend interface by providing additional dashboard sections, menu links, and functionality such as custom buttons and result displays.
-در جوملا کامپوننت بیلدر (JCB)، *ویوهای مدیریتی سفارشی* به توسعه‌دهندگان اجازه می‌دهند ویوهای مدیریتی پویا و انعطاف‌پذیری درون کامپوننت‌های خود ایجاد کنند. این ویوها رابط بک‌اند را با فراهم‌کردن بخش‌های داشبورد اضافی، لینک‌های منو و قابلیت‌هایی مانند دکمه‌های سفارشی و نمایش نتایج ارتقا می‌دهند.
+در جوملا کامپوننت بیلدر (JCB)، *ویوهای ادمین سفارشی* به توسعه‌دهندگان اجازه می‌دهند ویوهای مدیریتی پویا و انعطاف‌پذیری درون کامپوننت‌های خود ایجاد کنند. این ویوها رابط بک‌اند را با فراهم‌کردن بخش‌های داشبورد اضافی، لینک‌های منو و قابلیت‌هایی مانند دکمه‌های سفارشی و نمایش نتایج ارتقا می‌دهند.
 
 Think of them as the admin-side counterpart to Site Views: you use the same building blocks—**Layouts**, **Templates**, **Dynamic Gets**, **Custom Code blocks**, and optional **JavaScript/CSS libraries**—but you aim the output at administrators instead of public visitors. This lets you prototype dashboards, data utilities, or one-off workflow helpers without abandoning the JCB compile cycle.
 آن‌ها را به‌عنوان همتای سمت ادمین ویوهای سایت در نظر بگیرید: از همان بلوک‌های سازنده استفاده می‌کنید — **لایه‌ها (Layout)**، **قالب‌ها**، **Dynamic Getها**، **بلوک‌های کد سفارشی (Custom Code)** و **کتابخانه‌های اختیاری جاوااسکریپت/سی‌اس‌اس** — اما خروجی را به‌جای بازدیدکنندگان عمومی، برای مدیران هدف می‌گیرید. این به شما امکان می‌دهد داشبوردها، ابزارهای داده‌ای یا کمک‌کارهای گردش کار یک‌بارمصرف را بدون رهاکردن چرخه کامپایل JCB نمونه‌سازی کنید.
 
 In this example, we'll use the **Cost-Benefit Projection** component to demonstrate how to add and configure *Custom Admin Views* in JCB.
-در این مثال، از کامپوننت **پیش‌بینی هزینه-فایده (Cost-Benefit Projection)** برای نشان‌دادن نحوه افزودن و پیکربندی *ویوهای مدیریتی سفارشی* در JCB استفاده می‌کنیم.
+در این مثال، از کامپوننت **پیش‌بینی هزینه-فایده (Cost-Benefit Projection)** برای نشان‌دادن نحوه افزودن و پیکربندی *ویوهای ادمین سفارشی* در JCB استفاده می‌کنیم.
 
 ### **Before you start: assemble the ingredients**
 ### **پیش از شروع: مواد اولیه را آماده کنید**
 
 1. **Plan the data sources.** Decide which Admin Views or database tables will feed your Custom Admin View and model the relationships via Dynamic Gets.
-۱. **منابع داده را برنامه‌ریزی کنید.** مشخص کنید کدام ویوهای ادمین یا جدول‌های دیتابیس، ویوی مدیریتی سفارشی شما را تغذیه می‌کنند و روابط را از طریق Dynamic Getها مدل‌سازی کنید.
+۱. **منابع داده را برنامه‌ریزی کنید.** مشخص کنید کدام ویوهای ادمین یا جدول‌های دیتابیس، ویوی ادمین سفارشی شما را تغذیه می‌کنند و روابط را از طریق Dynamic Getها مدل‌سازی کنید.
 2. **Sketch the interface.** Determine whether you need Item, List, or hybrid behaviour and outline the tabs, filters, and toolbar actions that support the workflow.
 ۲. **واسط را طراحی کنید.** مشخص کنید به رفتار آیتم (Item)، لیست (List) یا ترکیبی نیاز دارید و تب‌ها، فیلترها و اقدامات نوار ابزار پشتیبان گردش کار را ترسیم کنید.
 3. **Prepare reusable assets.** Identify shared layouts, helper methods, JavaScript, or CSS that the view should reference so you avoid duplicating logic across the admin area.
@@ -31,28 +31,28 @@ Doing this homework keeps your implementation focused and prevents last-minute r
 ---
 
 ## **1. Accessing the Custom Admin Views Section**
-## **۱. دسترسی به بخش ویوهای مدیریتی سفارشی**
+## **۱. دسترسی به بخش ویوهای ادمین سفارشی**
 
 1. Open **Component Builder** in your Joomla administrator panel.
 ۱. **کامپوننت بیلدر** را در پنل مدیر جوملا خود باز کنید.
 2. Navigate to **Settings → Custom Admin Views**.
-۲. به **تنظیمات ← ویوهای مدیریتی سفارشی** بروید.
+۲. به **تنظیمات ← ویوهای ادمین سفارشی** بروید.
 3. Click **New** to create a new Custom Admin View.
-۳. برای ایجاد یک ویوی مدیریتی سفارشی جدید، روی **جدید (New)** کلیک کنید.
+۳. برای ایجاد یک ویوی ادمین سفارشی جدید، روی **جدید (New)** کلیک کنید.
 
 You'll notice that a *Custom Admin View* has more configuration options than a *Site View*. This is because the admin side is designed to be more dynamic and integrated into Joomla's administrative interface.
-متوجه خواهید شد که یک *ویوی مدیریتی سفارشی* گزینه‌های پیکربندی بیشتری نسبت به یک *ویوی سایت* دارد. دلیلش این است که سمت ادمین برای پویایی بیشتر و ادغام در رابط مدیریتی جوملا طراحی شده است.
+متوجه خواهید شد که یک *ویوی ادمین سفارشی* گزینه‌های پیکربندی بیشتری نسبت به یک *ویوی سایت* دارد. دلیلش این است که سمت ادمین برای پویایی بیشتر و ادغام در رابط مدیریتی جوملا طراحی شده است.
 
 ---
 
 ## **2. Understanding the Custom Admin View Options**
-## **۲. درک گزینه‌های ویوی مدیریتی سفارشی**
+## **۲. درک گزینه‌های ویوی ادمین سفارشی**
 
 ### **Icons and Menu Placement**
 ### **آیکون‌ها و جای‌گذاری منو**
 
 Each Custom Admin View can be associated with a **menu icon** and can appear in one or more of the following locations:
-هر ویوی مدیریتی سفارشی می‌تواند با یک **آیکون منو** مرتبط باشد و در یک یا چند موقعیت زیر ظاهر شود:
+هر ویوی ادمین سفارشی می‌تواند با یک **آیکون منو** مرتبط باشد و در یک یا چند موقعیت زیر ظاهر شود:
 
 * **Main Menu** - The primary menu visible on the Joomla component dashboard.
 * **منوی اصلی (Main Menu)** - منوی اولیه که در داشبورد کامپوننت جوملا دیده می‌شود.
@@ -67,7 +67,7 @@ These settings control how your view will appear and how users will access it fr
 > **Tip:**
 > **نکته:**
 > Use distinctive icons for each Custom Admin View to make navigation intuitive. JCB supports Joomla's standard icon classes.
-> برای هر ویوی مدیریتی سفارشی از آیکون‌های متمایز استفاده کنید تا ناوبری بصری شود. JCB از کلاس‌های آیکون استاندارد جوملا پشتیبانی می‌کند.
+> برای هر ویوی ادمین سفارشی از آیکون‌های متمایز استفاده کنید تا ناوبری بصری شود. JCB از کلاس‌های آیکون استاندارد جوملا پشتیبانی می‌کند.
 
 ---
 
@@ -75,17 +75,17 @@ These settings control how your view will appear and how users will access it fr
 ## **۳. هدف‌گیری آیتم‌ها و ویوهای خاص**
 
 Custom Admin Views can target other views or items inside your component. This allows you to create contextual buttons or data summaries that directly link to related items.
-ویوهای مدیریتی سفارشی می‌توانند ویوها یا آیتم‌های دیگری را درون کامپوننت شما هدف بگیرند. این به شما امکان می‌دهد دکمه‌های زمینه‌ای یا خلاصه‌های داده‌ای بسازید که مستقیماً به آیتم‌های مرتبط لینک می‌شوند.
+ویوهای ادمین سفارشی می‌توانند ویوها یا آیتم‌های دیگری را درون کامپوننت شما هدف بگیرند. این به شما امکان می‌دهد دکمه‌های زمینه‌ای یا خلاصه‌های داده‌ای بسازید که مستقیماً به آیتم‌های مرتبط لینک می‌شوند.
 
 1. In your new Custom Admin View, find the **Target View** dropdown.
-۱. در ویوی مدیریتی سفارشی جدید خود، منوی کشویی **ویوی هدف (Target View)** را پیدا کنید.
+۱. در ویوی ادمین سفارشی جدید خود، منوی کشویی **ویوی هدف (Target View)** را پیدا کنید.
 2. Select the appropriate target (for example, `Company`).
 ۲. هدف مناسب را انتخاب کنید (مثلاً `Company`).
 3. Set **Has Metadata** and **Add Access** to `Yes` if needed.
 ۳. در صورت نیاز، **دارای متادیتا (Has Metadata)** و **افزودن دسترسی (Add Access)** را روی `Yes` قرار دهید.
 
 This ensures that the Custom Admin View interacts correctly with the targeted view and has proper access permissions.
-این کار تضمین می‌کند ویوی مدیریتی سفارشی به‌درستی با ویوی هدف تعامل داشته باشد و مجوزهای دسترسی مناسب داشته باشد.
+این کار تضمین می‌کند ویوی ادمین سفارشی به‌درستی با ویوی هدف تعامل داشته باشد و مجوزهای دسترسی مناسب داشته باشد.
 
 > **Example:**
 > **مثال:**
@@ -95,7 +95,7 @@ This ensures that the Custom Admin View interacts correctly with the targeted vi
 ---
 
 ## **4. Linking the Custom Admin View Inside the Component**
-## **۴. اتصال ویوی مدیریتی سفارشی درون کامپوننت**
+## **۴. اتصال ویوی ادمین سفارشی درون کامپوننت**
 
 After configuration, open your component's **Dashboard** or **Target View** (for example, *Companies*) and check the new button or icon that appears.
 پس از پیکربندی، **داشبورد** یا **ویوی هدف (Target View)** کامپوننت خود را باز کنید (مثلاً *Companies*) و دکمه یا آیکون جدیدی را که ظاهر شده بررسی کنید.
@@ -106,7 +106,7 @@ When correctly configured:
 * The **Company Results** button will appear in the toolbar or dashboard.
 * دکمه **Company Results** در نوار ابزار یا داشبورد ظاهر می‌شود.
 * Clicking it will open the *Custom Admin View* (e.g., charts or combined results).
-* کلیک روی آن، *ویوی مدیریتی سفارشی* را باز می‌کند (مثلاً نمودارها یا نتایج ترکیبی).
+* کلیک روی آن، *ویوی ادمین سفارشی* را باز می‌کند (مثلاً نمودارها یا نتایج ترکیبی).
 * The selected `item_id` from the `Company` view is passed to the new view dynamically.
 * `item_id` انتخاب‌شده از ویوی `Company` به‌صورت پویا به ویوی جدید منتقل می‌شود.
 
@@ -119,7 +119,7 @@ This dynamic linking is handled automatically by JCB once the target and placeme
 ## **۵. استفاده از گزینه‌های "Order Before"**
 
 The **Order Before** fields are used when your Custom Admin View is added to a **Main Menu** or **Submenu**.
-فیلدهای **Order Before** زمانی استفاده می‌شوند که ویوی مدیریتی سفارشی شما به **منوی اصلی (Main Menu)** یا **زیرمنو** اضافه شود.
+فیلدهای **Order Before** زمانی استفاده می‌شوند که ویوی ادمین سفارشی شما به **منوی اصلی (Main Menu)** یا **زیرمنو** اضافه شود.
 
 These fields define where your new menu item should appear relative to existing items.
 این فیلدها مشخص می‌کنند آیتم منوی جدید شما نسبت به آیتم‌های موجود در کجا قرار گیرد.
@@ -138,10 +138,10 @@ This step ensures your admin interface remains logically organized.
 ## **۶. پیاده‌سازی دکمه‌های سفارشی**
 
 Custom Admin Views often include **custom buttons** that trigger specific actions or navigate to other views.
-ویوهای مدیریتی سفارشی اغلب شامل **دکمه‌های سفارشی** هستند که اقدامات خاصی را فعال می‌کنند یا به ویوهای دیگر هدایت می‌کنند.
+ویوهای ادمین سفارشی اغلب شامل **دکمه‌های سفارشی** هستند که اقدامات خاصی را فعال می‌کنند یا به ویوهای دیگر هدایت می‌کنند.
 
 1. Go to your Custom Admin View (e.g., *Company Results*).
-۱. به ویوی مدیریتی سفارشی خود بروید (مثلاً *Company Results*).
+۱. به ویوی ادمین سفارشی خود بروید (مثلاً *Company Results*).
 2. Scroll to the **Custom Buttons** section.
 ۲. به بخش **دکمه‌های سفارشی (Custom Buttons)** بروید.
 3. Define PHP logic for each button as needed (for example: `editCompany`, `gotoCompany`).
@@ -188,7 +188,7 @@ These correspond to the actions available *within* that specific view.
 ## **۸. اتصال داده‌ها با Dynamic Get و شناسه‌های انتخاب‌شده**
 
 When multiple records are selected in a list view, their IDs (`cid`) can be passed to your Custom Admin View dynamically.
-وقتی چند رکورد در یک ویوی لیست انتخاب می‌شوند، شناسه‌های آن‌ها (`cid`) می‌توانند به‌صورت پویا به ویوی مدیریتی سفارشی شما منتقل شوند.
+وقتی چند رکورد در یک ویوی لیست انتخاب می‌شوند، شناسه‌های آن‌ها (`cid`) می‌توانند به‌صورت پویا به ویوی ادمین سفارشی شما منتقل شوند.
 This enables data filtering or aggregation based on user selection.
 این کار فیلتر کردن یا تجمیع داده‌ها را بر اساس انتخاب کاربر ممکن می‌سازد.
 
@@ -196,7 +196,7 @@ To achieve this:
 برای رسیدن به این هدف:
 
 1. In your Custom Admin View's **Dynamic GET (Data Query)** section, access the selected IDs using PHP:
-۱. در بخش **Dynamic GET (کوئری داده)** ویوی مدیریتی سفارشی خود، به شناسه‌های انتخاب‌شده با PHP دسترسی پیدا کنید:
+۱. در بخش **Dynamic GET (کوئری داده)** ویوی ادمین سفارشی خود، به شناسه‌های انتخاب‌شده با PHP دسترسی پیدا کنید:
 
    ```php
    $input = JFactory::getApplication()->input;
@@ -221,7 +221,7 @@ If your view or buttons don't appear as expected:
 اگر ویو یا دکمه‌های شما مطابق انتظار ظاهر نشدند:
 
 * Reopen the Custom Admin View and double-check placement options.
-* ویوی مدیریتی سفارشی را دوباره باز کنید و گزینه‌های جای‌گذاری را دوباره بررسی کنید.
+* ویوی ادمین سفارشی را دوباره باز کنید و گزینه‌های جای‌گذاری را دوباره بررسی کنید.
 * Ensure the **Target View** is properly set.
 * مطمئن شوید **ویوی هدف (Target View)** به‌درستی تنظیم شده است.
 * Recompile the component and install the updated version.
@@ -256,6 +256,6 @@ Use these strategically to create a clean, user-friendly backend layout for your
 ## **نتیجه‌گیری**
 
 Adding Custom Admin Views in Joomla Component Builder empowers developers to design rich, interactive administrative interfaces. By properly setting menu placement, target views, and dynamic data handling, you can build professional back-end dashboards and management tools without manually writing all the boilerplate code. And because Custom Admin Views support the same **Init → Reset → Push → Fork** workflow used throughout the repository, you can iterate on these interfaces with confidence while keeping your bespoke layouts under source control.
-افزودن ویوهای مدیریتی سفارشی در جوملا کامپوننت بیلدر به توسعه‌دهندگان قدرت می‌دهد رابط‌های مدیریتی غنی و تعاملی طراحی کنند. با تنظیم صحیح جای‌گذاری منو، ویوهای هدف و مدیریت پویای داده، می‌توانید داشبوردها و ابزارهای مدیریتی حرفه‌ای بک‌اند بسازید بدون اینکه همه کدهای تکراری (boilerplate) را دستی بنویسید. و چون ویوهای مدیریتی سفارشی از همان گردش کار **Init → Reset → Push → Fork** استفاده‌شده در سراسر مخزن پشتیبانی می‌کنند، می‌توانید با اطمینان روی این رابط‌ها تکرار و بهبود انجام دهید و در عین حال لایه‌های اختصاصی خود را تحت کنترل نسخه نگه دارید.
+افزودن ویوهای ادمین سفارشی در جوملا کامپوننت بیلدر به توسعه‌دهندگان قدرت می‌دهد رابط‌های مدیریتی غنی و تعاملی طراحی کنند. با تنظیم صحیح جای‌گذاری منو، ویوهای هدف و مدیریت پویای داده، می‌توانید داشبوردها و ابزارهای مدیریتی حرفه‌ای بک‌اند بسازید بدون اینکه همه کدهای تکراری (boilerplate) را دستی بنویسید. و چون ویوهای ادمین سفارشی از همان گردش کار **Init → Reset → Push → Fork** استفاده‌شده در سراسر مخزن پشتیبانی می‌کنند، می‌توانید با اطمینان روی این رابط‌ها تکرار و بهبود انجام دهید و در عین حال لایه‌های اختصاصی خود را تحت کنترل نسخه نگه دارید.
 
 ---
